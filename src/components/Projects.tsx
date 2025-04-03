@@ -22,6 +22,7 @@ import {
 import { Github, Globe } from "lucide-react";
 
 import { useLanguage } from "@/contexts/LanguageContext";
+import Link from "next/link";
 
 interface TechBadgeProps {
   name: string;
@@ -236,24 +237,31 @@ export default function Projects() {
                         </div>
 
                         <div className="flex gap-2 justify-self-end">
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            className="bg-zinc-700 hover:bg-zinc-600 text-white border-zinc-600
+                          <Link href={item.github} target="_blank">
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              className="bg-zinc-700 hover:bg-zinc-600 text-white border-zinc-600
                             cursor-pointer"
-                          >
-                            GitHub
-                            <Github className="mr-2 h-4 w-4" />
-                          </Button>
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            className="bg-zinc-700 hover:bg-zinc-600 text-white border-zinc-600
+                            >
+                              GitHub
+                              <Github className="mr-2 h-4 w-4" />
+                            </Button>
+                          </Link>
+
+                          <Link href={item.deploy} target="_blank">
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              className="bg-zinc-700 hover:bg-zinc-600 text-white border-zinc-600
                             cursor-pointer"
-                          >
-                            {language === "pt" ? "Acesse o Site" : "Visit Site"}
-                            <Globe className="mr-2 h-4 w-4" />
-                          </Button>
+                            >
+                              {language === "pt"
+                                ? "Acesse o Site"
+                                : "Visit Site"}
+                              <Globe className="mr-2 h-4 w-4" />
+                            </Button>
+                          </Link>
                         </div>
                       </div>
                     </CardContent>
@@ -265,7 +273,6 @@ export default function Projects() {
             <CarouselNext className="cursor-pointer absolute mr-8" />
           </div>
         </Carousel>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6"></div>
       </CardContent>
     </Card>
   );
