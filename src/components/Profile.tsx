@@ -46,8 +46,8 @@ export default function Profile() {
     github: "https://github.com/eduardossoares",
     resume:
       language === "pt"
-        ? "/Eduardo_Soares_Fullstack_CV.pdf"
-        : "/Eduardo_Soares_Fullstack_Resume.pdf",
+        ? "/Eduardo_Soares_FullStack_CV.pdf"
+        : "/Eduardo_Soares_FullStack_Resume.pdf",
   };
 
   return (
@@ -65,7 +65,7 @@ export default function Profile() {
             : profileLanguages[1].biography}
         </p>
         <div className="flex flex-wrap gap-2">
-          <a href={links.resume} download={true}>
+          <a href={links.resume} download={links.resume}>
             <Button
               variant="outline"
               size="sm"
