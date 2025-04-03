@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 
@@ -31,6 +31,7 @@ interface TechBadgeProps {
 interface ProjectProps {
   name: string;
   url: string;
+  description: string;
   github: string;
   deploy: string;
   techs: TechBadgeProps[];
@@ -43,6 +44,10 @@ export default function Projects() {
     {
       name: "Delivery - Anota Já",
       url: "/delivery.png",
+      description:
+        language === "pt"
+          ? "Sistema de delivery com Next.js e TypeScript, permitindo compras interativas e gestão de pedidos via dashboard seguro."
+          : "A delivery system with Next.js and TypeScript, enabling interactive shopping and order management through a secure dashboard.",
       github: "https://github.com/eduardossoares/delivery",
       deploy: "https://delivery-anotaja.vercel.app/",
       techs: [
@@ -75,6 +80,10 @@ export default function Projects() {
     {
       name: "Tasks+",
       url: "/tasks.png",
+      description:
+        language === "pt"
+          ? "Aplicação fullstack para gestão de tarefas, desenvolvida com Next.js, TypeScript e Firebase. Permite criar, editar e compartilhar tarefas, além de receber comentários de outros usuários."
+          : "A full-stack application for task management, developed with Next.js, TypeScript, and Firebase. It allows users to create, edit, and share tasks, as well as receive comments from other users.",
       github: "https://github.com/eduardossoares/tasks",
       deploy: "https://project-tasks-plus.vercel.app/",
       techs: [
@@ -103,6 +112,10 @@ export default function Projects() {
     {
       name: "Webcarros",
       url: "/webcarros.png",
+      description:
+        language === "pt"
+          ? "Webcarros é uma aplicação em React.js e TypeScript onde os usuários podem explorar, cadastrar e gerenciar veículos à venda."
+          : "Webcarros is an application built with React.js and TypeScript, where users can explore, register, and manage vehicles for sale.",
       github: "https://github.com/eduardossoares/webcarros",
       deploy: "https://webcarros-three.vercel.app/",
       techs: [
@@ -131,6 +144,10 @@ export default function Projects() {
     {
       name: "Gamepedia",
       url: "/gamepedia.png",
+      description:
+        language === "pt"
+          ? "Aplicação web em Next.js (SSR) e TypeScript para explorar jogos eletrônicos com catálogo interativo, busca rápida e detalhes completos."
+          : "A web application in Next.js (SSR) and TypeScript to explore video games with an interactive catalog, quick search, and detailed information.",
       github: "https://github.com/eduardossoares/gamepedia",
       deploy: "https://gamepedia-mu.vercel.app/",
       techs: [
@@ -183,10 +200,15 @@ export default function Projects() {
                           className="rounded-t-lg"
                         />
                       </div>
-                      <div className="p-4 space-y-3 flex flex-col h-52 sm:h-42 justify-between">
+                      <div className="p-4 space-y-3 flex flex-col">
                         <h3 className="text-white font-bold text-lg">
                           {item.name}
                         </h3>
+
+                        <p className="text-zinc-300 text-sm">
+                          {item.description}
+                        </p>
+
                         <div className="flex flex-wrap gap-x-1 gap-y-1">
                           {item.techs.map((tech, index) => (
                             <TooltipProvider key={index}>
@@ -212,12 +234,13 @@ export default function Projects() {
                             </TooltipProvider>
                           ))}
                         </div>
-                        <div className="flex gap-2">
+
+                        <div className="flex gap-2 justify-self-end">
                           <Button
                             variant="outline"
                             size="sm"
                             className="bg-zinc-700 hover:bg-zinc-600 text-white border-zinc-600
-                      cursor-pointer"
+                            cursor-pointer"
                           >
                             GitHub
                             <Github className="mr-2 h-4 w-4" />
@@ -228,7 +251,7 @@ export default function Projects() {
                             className="bg-zinc-700 hover:bg-zinc-600 text-white border-zinc-600
                             cursor-pointer"
                           >
-                            Acessar o Site
+                            {language === "pt" ? "Acesse o Site" : "Visit Site"}
                             <Globe className="mr-2 h-4 w-4" />
                           </Button>
                         </div>
