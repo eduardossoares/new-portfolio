@@ -1,21 +1,29 @@
 "use client";
 
-import { Download, Github, Linkedin } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import Link from "next/link";
+
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 
-import { useLanguage } from "@/contexts/LanguageContext";
+import { Download, Github, Linkedin } from "lucide-react";
 
-interface profileProps {
+interface ProfileProps {
   position: string;
   biography: string;
+  resume: string;
+}
+
+interface LinkProps {
+  linkedin: string;
+  github: string;
   resume: string;
 }
 
 export default function Profile() {
   const { language } = useLanguage();
 
-  const profileLanguages: profileProps[] = [
+  const profileLanguages: ProfileProps[] = [
     {
       position: "Desenvolvedor Fullstack",
       biography:
@@ -29,6 +37,18 @@ export default function Profile() {
       resume: "Download Resume",
     },
   ];
+
+  const links: LinkProps = {
+    linkedin:
+      language === "pt"
+        ? "https://www.linkedin.com/in/eduardo-da-silva-soares/"
+        : "https://www.linkedin.com/in/eduardo-da-silva-soares/?locale=en_US",
+    github: "https://github.com/eduardossoares",
+    resume:
+      language === "pt"
+        ? "/Eduardo_Soares_Fullstack_CV.pdf"
+        : "/Eduardo_Soares_Fullstack_Resume.pdf",
+  };
 
   return (
     <Card className="bg-zinc-900 border-zinc-800 p-6 md:w-[50%]">
@@ -45,34 +65,40 @@ export default function Profile() {
             : profileLanguages[1].biography}
         </p>
         <div className="flex flex-wrap gap-2">
-          <Button
-            variant="outline"
-            size="sm"
-            className="bg-zinc-800 hover:bg-zinc-700 text-white border-zinc-700 cursor-pointer"
-          >
-            <Download className="h-4 w-4" />
-            {language === "pt"
-              ? profileLanguages[0].resume
-              : profileLanguages[1].resume}
-          </Button>
+          <a href={links.resume} download={true}>
+            <Button
+              variant="outline"
+              size="sm"
+              className="bg-zinc-800 hover:bg-zinc-700 text-white border-zinc-700 cursor-pointer"
+            >
+              <Download className="h-4 w-4" />
+              {language === "pt"
+                ? profileLanguages[0].resume
+                : profileLanguages[1].resume}
+            </Button>
+          </a>
 
-          <Button
-            variant="outline"
-            size="sm"
-            className="bg-purple-900 hover:bg-purple-800 text-white border-purple-800 cursor-pointer"
-          >
-            <Github className="h-4 w-4" />
-            Github
-          </Button>
+          <Link href={links.github} target="_blank">
+            <Button
+              variant="outline"
+              size="sm"
+              className="bg-purple-900 hover:bg-purple-800 text-white border-purple-800 cursor-pointer"
+            >
+              <Github className="h-4 w-4" />
+              Github
+            </Button>
+          </Link>
 
-          <Button
-            variant="outline"
-            size="sm"
-            className="bg-blue-900 hover:bg-blue-800 text-white border-blue-800 cursor-pointer"
-          >
-            <Linkedin className="h-4 w-4" />
-            LinkedIn
-          </Button>
+          <Link href={links.linkedin} target="_blank">
+            <Button
+              variant="outline"
+              size="sm"
+              className="bg-blue-900 hover:bg-blue-800 text-white border-blue-800 cursor-pointer"
+            >
+              <Linkedin className="h-4 w-4" />
+              LinkedIn
+            </Button>
+          </Link>
         </div>
       </CardContent>
     </Card>
