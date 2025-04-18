@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Developer Portfolio 🌟
 
-## Getting Started
+Um portfolio de desenvolvedor elegante e funcional, construído com **Next.js**, **TypeScript** e **Tailwind CSS**. Este projeto é o meu cartão de visitas digital, exibindo minha tech stack, projetos concluídos e informações de contato, com um toque especial: um switcher de idiomas entre inglês e português.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-14-black) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue) ![Tailwind](https://img.shields.io/badge/Tailwind_CSS-3-38B2AC)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Sobre o Projeto
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Este portfolio foi criado para mostrar quem eu sou como desenvolvedor. Com **Next.js** como base, ele oferece uma navegação fluida e um design moderno graças ao **Tailwind CSS** e componentes do **ShadcnUI**. Um slider destaca meus projetos anteriores, enquanto o **Context API** gerencia o estado, como a troca de idiomas, de forma simples e eficiente.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Funcionalidades Principais
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Contato Fácil**: Links diretos para me encontrar.
+- **Tech Stack**: Minhas ferramentas e habilidades em destaque.
+- **Slider de Projetos**: Explore meus trabalhos com um carrossel interativo.
+- **Multilíngue**: Alterne entre inglês e português com um clique.
 
-## Learn More
+## Tecnologias que Dão Vida ao Portfolio
 
-To learn more about Next.js, take a look at the following resources:
+- **Next.js**: Performance e estrutura robusta.
+- **TypeScript**: Código limpo e tipado.
+- **Tailwind CSS & ShadcnUI**: Design moderno e componentes prontos.
+- **Context API**: Gerenciamento de estado leve.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Decisões Técnicas
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Usei **Next.js** para uma base otimizada e suporte a SEO, essencial para visibilidade.
+- **Tailwind CSS** com **ShadcnUI** acelerou o design, mantendo tudo personalizável.
+- Escolhi **Context API** para o switcher de idiomas por se tratar de um projeto simples, então evitei bibliotecas como Redux.
