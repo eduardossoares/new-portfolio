@@ -1,3 +1,5 @@
+"use client"
+
 import { Badge } from "./ui/badge";
 import { Card, CardContent } from "./ui/card";
 import Image from "next/image";
@@ -7,6 +9,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "./ui/tooltip";
+import { motion } from "framer-motion";
 
 interface TechProps {
   name: string;
@@ -83,35 +86,42 @@ export default function TechStack() {
   ];
 
   return (
-    <Card className="md:w-[50%] bg-zinc-900 border-zinc-800">
-      <CardContent className="space-y-4">
-        <h2 className="text-xl font-black text-white">Tech Stack</h2>
-        <div className="flex flex-wrap gap-x-1.5 gap-y-1.5">
-          {techStack.map((tech, index) => (
-            <TooltipProvider key={index}>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Badge
-                    variant="outline"
-                    className="bg-zinc-800 text-white border-zinc-700 px-3 py-1 cursor-pointer"
-                  >
-                    <Image
-                      width={14}
-                      height={14}
-                      alt={tech.name}
-                      src={tech.icon}
-                    />
-                    <span>{tech.name}</span>
-                  </Badge>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>{tech.name}</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-          ))}
-        </div>
-      </CardContent>
-    </Card>
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.4 }}
+      className="md:w-1/2 w-full"
+    >
+      <Card className="md:w-full h-full bg-zinc-900 border-zinc-800">
+        <CardContent className="space-y-4">
+          <h2 className="text-xl font-black text-white">Tech Stack</h2>
+          <div className="flex flex-wrap gap-x-1.5 gap-y-1.5">
+            {techStack.map((tech, index) => (
+              <TooltipProvider key={index}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Badge
+                      variant="outline"
+                      className="bg-zinc-800 text-white border-zinc-700 px-3 py-1 cursor-pointer"
+                    >
+                      <Image
+                        width={14}
+                        height={14}
+                        alt={tech.name}
+                        src={tech.icon}
+                      />
+                      <span>{tech.name}</span>
+                    </Badge>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{tech.name}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+    </motion.div>
   );
 }

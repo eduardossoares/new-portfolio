@@ -24,6 +24,8 @@ import { Github, Globe } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Link from "next/link";
 
+import { motion } from "framer-motion";
+
 interface TechBadgeProps {
   name: string;
   icon: string;
@@ -173,107 +175,115 @@ export default function Projects() {
   ];
 
   return (
-    <Card className="bg-zinc-900 border-zinc-800 max-sm:p-2">
-      <CardHeader className="max-sm:p-2 max-sm:-mb-6">
-        <h2 className="text-xl text-white font-bold">Conheça meus projetos!</h2>
-      </CardHeader>
-      <CardContent className="max-sm:p-2">
-        <Carousel
-          className="w-full"
-          opts={{ slidesToScroll: 1, align: "start" }}
-        >
-          <div className="relative">
-            <CarouselContent className="-ml-4">
-              {projects.map((item, index) => (
-                <CarouselItem key={index} className="lg:basis-1/2">
-                  <Card
-                    key={index}
-                    className="bg-zinc-800 border-zinc-700 p-0 h-full"
-                  >
-                    <CardContent className="p-0 h-full">
-                      <div className="relative w-full h-[150px] sm:h-[300px]">
-                        {" "}
-                        <Image
-                          src={item.url}
-                          alt={item.name}
-                          layout="fill"
-                          objectFit="cover"
-                          className="rounded-t-lg"
-                        />
-                      </div>
-                      <div className="p-4 space-y-3 flex flex-col">
-                        <h3 className="text-white font-bold text-lg">
-                          {item.name}
-                        </h3>
-
-                        <p className="text-zinc-300 text-sm">
-                          {item.description}
-                        </p>
-
-                        <div className="flex flex-wrap gap-x-1 gap-y-1">
-                          {item.techs.map((tech, index) => (
-                            <TooltipProvider key={index}>
-                              <Tooltip>
-                                <TooltipTrigger asChild>
-                                  <Badge
-                                    variant="outline"
-                                    className="bg-zinc-800 text-white border-zinc-700 px-3 py-1 cursor-pointer"
-                                  >
-                                    <Image
-                                      width={14}
-                                      height={14}
-                                      alt={tech.name}
-                                      src={tech.icon}
-                                    />
-                                    <span>{tech.name}</span>
-                                  </Badge>
-                                </TooltipTrigger>
-                                <TooltipContent>
-                                  <p>{tech.name}</p>
-                                </TooltipContent>
-                              </Tooltip>
-                            </TooltipProvider>
-                          ))}
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.6 }}
+    >
+      <Card className="bg-zinc-900 border-zinc-800 max-sm:p-2">
+        <CardHeader className="max-sm:p-2 max-sm:-mb-6">
+          <h2 className="text-xl text-white font-bold">
+            Conheça meus projetos!
+          </h2>
+        </CardHeader>
+        <CardContent className="max-sm:p-2">
+          <Carousel
+            className="w-full"
+            opts={{ slidesToScroll: 1, align: "start" }}
+          >
+            <div className="relative">
+              <CarouselContent className="-ml-4">
+                {projects.map((item, index) => (
+                  <CarouselItem key={index} className="lg:basis-1/2">
+                    <Card
+                      key={index}
+                      className="bg-zinc-800 border-zinc-700 p-0 h-full"
+                    >
+                      <CardContent className="p-0 h-full">
+                        <div className="relative w-full h-[150px] sm:h-[300px]">
+                          {" "}
+                          <Image
+                            src={item.url}
+                            alt={item.name}
+                            layout="fill"
+                            objectFit="cover"
+                            className="rounded-t-lg"
+                          />
                         </div>
+                        <div className="p-4 space-y-3 flex flex-col">
+                          <h3 className="text-white font-bold text-lg">
+                            {item.name}
+                          </h3>
 
-                        <div className="flex gap-2 justify-self-end">
-                          <Link href={item.github} target="_blank">
-                            <Button
-                              variant="outline"
-                              size="sm"
-                              className="bg-zinc-700 hover:bg-zinc-600 text-white border-zinc-600
-                            cursor-pointer"
-                            >
-                              GitHub
-                              <Github className="mr-2 h-4 w-4" />
-                            </Button>
-                          </Link>
+                          <p className="text-zinc-300 text-sm">
+                            {item.description}
+                          </p>
 
-                          <Link href={item.deploy} target="_blank">
-                            <Button
-                              variant="outline"
-                              size="sm"
-                              className="bg-zinc-700 hover:bg-zinc-600 text-white border-zinc-600
+                          <div className="flex flex-wrap gap-x-1 gap-y-1">
+                            {item.techs.map((tech, index) => (
+                              <TooltipProvider key={index}>
+                                <Tooltip>
+                                  <TooltipTrigger asChild>
+                                    <Badge
+                                      variant="outline"
+                                      className="bg-zinc-800 text-white border-zinc-700 px-3 py-1 cursor-pointer"
+                                    >
+                                      <Image
+                                        width={14}
+                                        height={14}
+                                        alt={tech.name}
+                                        src={tech.icon}
+                                      />
+                                      <span>{tech.name}</span>
+                                    </Badge>
+                                  </TooltipTrigger>
+                                  <TooltipContent>
+                                    <p>{tech.name}</p>
+                                  </TooltipContent>
+                                </Tooltip>
+                              </TooltipProvider>
+                            ))}
+                          </div>
+
+                          <div className="flex gap-2 justify-self-end">
+                            <Link href={item.github} target="_blank">
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                className="bg-zinc-700 hover:bg-zinc-600 text-white border-zinc-600
                             cursor-pointer"
-                            >
-                              {language === "pt"
-                                ? "Acesse o Site"
-                                : "Visit Site"}
-                              <Globe className="mr-2 h-4 w-4" />
-                            </Button>
-                          </Link>
+                              >
+                                GitHub
+                                <Github className="mr-2 h-4 w-4" />
+                              </Button>
+                            </Link>
+
+                            <Link href={item.deploy} target="_blank">
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                className="bg-zinc-700 hover:bg-zinc-600 text-white border-zinc-600
+                            cursor-pointer"
+                              >
+                                {language === "pt"
+                                  ? "Acesse o Site"
+                                  : "Visit Site"}
+                                <Globe className="mr-2 h-4 w-4" />
+                              </Button>
+                            </Link>
+                          </div>
                         </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="cursor-pointer absolute ml-8" />
-            <CarouselNext className="cursor-pointer absolute mr-8" />
-          </div>
-        </Carousel>
-      </CardContent>
-    </Card>
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="cursor-pointer absolute ml-8" />
+              <CarouselNext className="cursor-pointer absolute mr-8" />
+            </div>
+          </Carousel>
+        </CardContent>
+      </Card>
+    </motion.div>
   );
 }
