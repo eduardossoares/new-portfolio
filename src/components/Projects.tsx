@@ -78,6 +78,10 @@ export default function Projects() {
           name: "PrismaORM",
           icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg",
         },
+        {
+          name: "Vercel",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg",
+        },
       ],
     },
     {
@@ -113,18 +117,18 @@ export default function Projects() {
       ],
     },
     {
-      name: "Webcarros",
-      url: "/webcarros.png",
+      name: "Navicar",
+      url: "/navicar.png",
       description:
         language === "pt"
-          ? "Webcarros é uma aplicação em React.js e TypeScript onde os usuários podem explorar, cadastrar e gerenciar veículos à venda."
-          : "Webcarros is an application built with React.js and TypeScript, where users can explore, register, and manage vehicles for sale.",
-      github: "https://github.com/eduardossoares/webcarros",
-      deploy: "https://webcarros-three.vercel.app/",
+          ? "Navicar é uma aplicação fullstack desenvolvida em Next.js, Node.js e TypeScript onde os usuários podem explorar, cadastrar e gerenciar veículos à venda."
+          : "Webcarros is an fullstack application built with Next.js, Node.js and TypeScript, where users can explore, register, and manage vehicles for sale.",
+      github: "https://github.com/eduardossoares/navicar",
+      deploy: "https://navicar-web.vercel.app/",
       techs: [
         {
-          name: "React.js",
-          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+          name: "Next.js",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
         },
         {
           name: "TypeScript",
@@ -135,8 +139,16 @@ export default function Projects() {
           icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
         },
         {
-          name: "Firebase",
-          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+          name: "Node.js",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain.svg",
+        },
+        {
+          name: "PostgreSQL",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+        },
+        {
+          name: "PrismaORM",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg",
         },
         {
           name: "Vercel",
